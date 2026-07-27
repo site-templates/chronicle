@@ -1,0 +1,22 @@
+[
+    {
+        "number": "01",
+        "title": "Loud, not confusing",
+        "description": "Boldness is a volume knob, not a blindfold. Every screamer earns its place by making the message clearer, never by decorating it."
+    },
+    {
+        "number": "02",
+        "title": "Ship the weird version",
+        "description": "The safe option gets you a site nobody remembers and nobody argues with. If a concept doesn't make someone on the call slightly nervous, it's beige."
+    },
+    {
+        "number": "03",
+        "title": "Fast is a feature",
+        "description": "Every page ships light and loads now. Speed is the one aesthetic choice every visitor notices, on every device, every single time."
+    },
+    {
+        "number": "04",
+        "title": "One human, end to end",
+        "description": "Strategy, design, and code from the same brain. No handoffs, no telephone game, no 'the dev team interpreted it differently'."
+    }
+]

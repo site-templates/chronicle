@@ -1,0 +1,16 @@
+title: Page header
+description: The inner-page opener — mono eyebrow, huge uppercase title, optional intro
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "Section"
+    heading:
+        type: text
+        label: Heading
+        default: "Page title"
+    intro:
+        type: textarea
+        label: Intro
+        description: Leave empty to skip the intro line.
+        default: ""

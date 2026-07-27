@@ -1,0 +1,19 @@
+title: Stats
+description: Big count-up figures in hairline-divided cells, from the stats collection
+fields:
+    items:
+        type: repeater
+        label: Figures
+        add_button_label: "Add figure"
+        item_label: label
+        source: "stats"
+        sub_fields:
+            value:
+                type: text
+                label: Value
+                description: "The number counts up; prefixes and suffixes like + or % stay put."
+                default: "100+"
+            label:
+                type: text
+                label: Label
+                default: "New figure"

@@ -1,0 +1,35 @@
+title: Timeline
+description: The experience ledger — one hairlined row per chapter, from the experience collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "The long version"
+    heading:
+        type: text
+        label: Heading
+        default: "Where I've been"
+    items:
+        type: repeater
+        label: Chapters
+        add_button_label: "Add chapter"
+        item_label: role
+        source: "experience"
+        sub_fields:
+            years:
+                type: text
+                label: Years
+                default: "2026 — Now"
+            role:
+                type: text
+                label: Role
+                default: "New role"
+            place:
+                type: text
+                label: Company or place
+                default: "Somewhere"
+            description:
+                type: textarea
+                label: Description
+                rows: 3
+                default: "What this chapter was about."

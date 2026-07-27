@@ -1,0 +1,33 @@
+# The visual editor's contract for components/nav.blade.php — these fields
+# surface under the Layout tab. Field names are camelCase, matching the props
+# they fill.
+title: Navigation
+description: The site-wide top bar — brand, links, and the pink call-to-action cell
+fields:
+    brand:
+        type: text
+        label: Brand name
+        default: "Chronicle"
+    links:
+        type: repeater
+        label: Navigation links
+        add_button_label: "Add link"
+        item_label: text
+        source: "site.nav_links"
+        sub_fields:
+            text:
+                type: text
+                label: Text
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "/"
+    ctaText:
+        type: text
+        label: Button text
+        default: "Let's talk"
+    ctaLink:
+        type: url
+        label: Button link
+        default: "/contact"

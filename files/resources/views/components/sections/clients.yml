@@ -1,0 +1,22 @@
+title: Clients
+description: A wall of text logotypes in bordered cells, from the clients collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "Good company"
+    heading:
+        type: text
+        label: Heading
+        default: "Clients who came back"
+    items:
+        type: repeater
+        label: Clients
+        add_button_label: "Add client"
+        item_label: name
+        source: "clients"
+        sub_fields:
+            name:
+                type: text
+                label: Name
+                default: "New client"

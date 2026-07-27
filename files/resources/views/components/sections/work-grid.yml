@@ -1,0 +1,63 @@
+title: Work grid
+description: The project grid — framed covers from the work collection, linking to each case study
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "Selected work"
+    heading:
+        type: text
+        label: Heading
+        default: "Things I'm proud of"
+    body:
+        type: textarea
+        label: Supporting copy
+        default: "A few recent projects — brands, websites, and products. Every one of them shipped, and every one of them is still alive."
+    showAllLink:
+        type: toggle
+        label: Show the corner link
+        default: "0"
+    allText:
+        type: text
+        label: Corner link text
+        default: "All projects"
+    allLink:
+        type: url
+        label: Corner link
+        default: "/work"
+    items:
+        type: repeater
+        label: Projects
+        add_button_label: "Add project"
+        item_label: title
+        source: "work"
+        sub_fields:
+            title:
+                type: text
+                label: Title
+                default: "New project"
+            summary:
+                type: textarea
+                label: Summary
+                rows: 2
+                default: "One line on what this project is."
+            category:
+                type: text
+                label: Category
+                default: "Brand & Web"
+            year:
+                type: text
+                label: Year
+                default: "2026"
+            image:
+                type: image
+                label: Cover image
+                default: "https://assets.ui.sh/wallpapers/silk.webp?variant=platinum-flow"
+            imageAlt:
+                type: text
+                label: Cover alt text
+                default: "Project cover"
+            link:
+                type: url
+                label: Link
+                default: "/work"

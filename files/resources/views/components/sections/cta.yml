@@ -1,0 +1,27 @@
+title: Call to action
+description: The closing move — a giant statement, one oversized email button, and the availability note
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "Got a project?"
+    heading:
+        type: text
+        label: Heading
+        default: "Let's make something loud"
+    body:
+        type: textarea
+        label: Supporting copy
+        default: "One email, no forms, no discovery-call maze. Tell me what you're building and I'll reply within two working days."
+    buttonText:
+        type: text
+        label: Button text
+        default: "hello@chronicle.studio"
+    buttonLink:
+        type: url
+        label: Button link
+        default: "mailto:hello@chronicle.studio"
+    note:
+        type: text
+        label: Note under the button
+        default: "Currently booking for Q3 2026"

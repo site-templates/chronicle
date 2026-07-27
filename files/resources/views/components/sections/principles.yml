@@ -1,0 +1,31 @@
+title: Principles
+description: The manifesto — big numbered rows from the principles collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "How I work"
+    heading:
+        type: text
+        label: Heading
+        default: "The house rules"
+    items:
+        type: repeater
+        label: Principles
+        add_button_label: "Add principle"
+        item_label: title
+        source: "principles"
+        sub_fields:
+            number:
+                type: text
+                label: Number
+                default: "01"
+            title:
+                type: text
+                label: Title
+                default: "New principle"
+            description:
+                type: textarea
+                label: Description
+                rows: 3
+                default: "One honest sentence about what this means in practice."

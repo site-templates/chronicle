@@ -1,0 +1,32 @@
+[
+    {
+        "years": "2022 — Now",
+        "role": "Founder & everything else",
+        "place": "Chronicle Studio",
+        "description": "The one-person studio. Brand, web, and product work for founders who want one accountable human instead of a slide deck of departments."
+    },
+    {
+        "years": "2019 — 2022",
+        "role": "Design lead",
+        "place": "Northwind",
+        "description": "Led a four-person team through a full replatform and rebrand. Learned that shipping beats presenting, and wrote the design system that outlived my tenure."
+    },
+    {
+        "years": "2017 — 2019",
+        "role": "Senior product designer",
+        "place": "Hexlab",
+        "description": "Design systems and growth work for a developer-tools startup. Discovered that engineers are the best design critics you'll ever get for free."
+    },
+    {
+        "years": "2015 — 2017",
+        "role": "Designer & front-end developer",
+        "place": "Studio Anansi",
+        "description": "Brand and web for cultural clients — galleries, festivals, one opera house. Where I learned that budgets are creative constraints wearing a disguise."
+    },
+    {
+        "years": "2014 — 2015",
+        "role": "Junior designer",
+        "place": "Freelance, badly",
+        "description": "Underpriced everything, overdelivered everything, slept rarely. Kept the lessons, dropped the invoicing spreadsheet."
+    }
+]

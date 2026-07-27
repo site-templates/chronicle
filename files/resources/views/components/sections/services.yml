@@ -1,0 +1,39 @@
+title: Services
+description: Numbered service columns separated by hairlines, from the services collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "What I do"
+    heading:
+        type: text
+        label: Heading
+        default: "Four things, done properly"
+    body:
+        type: textarea
+        label: Supporting copy
+        default: "No sprawling service menu. These are the four jobs I take, and the shape each one usually comes in."
+    items:
+        type: repeater
+        label: Services
+        add_button_label: "Add service"
+        item_label: title
+        source: "services"
+        sub_fields:
+            number:
+                type: text
+                label: Number
+                default: "01"
+            title:
+                type: text
+                label: Title
+                default: "New service"
+            description:
+                type: textarea
+                label: Description
+                rows: 3
+                default: "What this service covers and who it's for."
+            tags:
+                type: text
+                label: Deliverables line
+                default: "Deliverable · Deliverable · Deliverable"

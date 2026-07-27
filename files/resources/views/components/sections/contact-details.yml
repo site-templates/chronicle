@@ -1,0 +1,43 @@
+title: Contact details
+description: The contact board — big email card, socials ledger, location and availability
+fields:
+    emailLabel:
+        type: text
+        label: Email card label
+        default: "Email — the whole funnel"
+    email:
+        type: text
+        label: Email address
+        default: "hello@chronicle.studio"
+    emailNote:
+        type: textarea
+        label: Email card note
+        rows: 3
+        default: "Tell me what you're building, roughly when you need it, and your budget bracket if you know it. I reply to everything within two working days."
+    location:
+        type: text
+        label: Location
+        default: "Portland, OR — working worldwide"
+    showAvailability:
+        type: toggle
+        label: Show availability badge
+        default: "1"
+    availability:
+        type: text
+        label: Availability badge
+        default: "Booking for Q3 2026"
+    socials:
+        type: repeater
+        label: Social links
+        add_button_label: "Add social link"
+        item_label: text
+        source: "site.social_links"
+        sub_fields:
+            text:
+                type: text
+                label: Label
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "https://"

@@ -1,0 +1,35 @@
+title: Testimonials
+description: Leaning quote cards from the testimonials collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "Kind words"
+    heading:
+        type: text
+        label: Heading
+        default: "People say nice things"
+    items:
+        type: repeater
+        label: Testimonials
+        add_button_label: "Add testimonial"
+        item_label: name
+        source: "testimonials"
+        sub_fields:
+            quote:
+                type: textarea
+                label: Quote
+                rows: 4
+                default: "Working together was a genuine pleasure — and the results speak for themselves."
+            name:
+                type: text
+                label: Name
+                default: "New person"
+            role:
+                type: text
+                label: Role
+                default: "Role, Company"
+            avatar:
+                type: image
+                label: Photo
+                default: "https://assets.ui.sh/avatars/1.webp?size=160"

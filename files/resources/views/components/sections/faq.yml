@@ -1,0 +1,31 @@
+title: FAQ
+description: Accordion of questions from the faq collection
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "FAQ"
+    heading:
+        type: text
+        label: Heading
+        default: "Before you ask"
+    body:
+        type: textarea
+        label: Supporting copy
+        default: "The questions almost every project starts with. Anything else — just email."
+    items:
+        type: repeater
+        label: Questions
+        add_button_label: "Add question"
+        item_label: question
+        source: "faq"
+        sub_fields:
+            question:
+                type: text
+                label: Question
+                default: "New question?"
+            answer:
+                type: textarea
+                label: Answer
+                rows: 4
+                default: "The honest answer."

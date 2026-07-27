@@ -1,0 +1,26 @@
+[
+    {
+        "number": "01",
+        "title": "Brand identity",
+        "description": "Naming, wordmarks, and full identity systems for brands that want to be recognised across the street, not squinted at.",
+        "tags": "Strategy · Wordmark · Guidelines"
+    },
+    {
+        "number": "02",
+        "title": "Web design",
+        "description": "Marketing sites and product pages designed type-first — pages with a point of view that still convert like they mean it.",
+        "tags": "Landing pages · Design systems · Prototypes"
+    },
+    {
+        "number": "03",
+        "title": "Development",
+        "description": "I build what I design — fast, accessible, hand-tuned front ends with no template smell and no agency handoff tax.",
+        "tags": "Front-end · CMS · Performance"
+    },
+    {
+        "number": "04",
+        "title": "Art direction",
+        "description": "Campaigns, editorial systems, and visual worlds for teams that have a voice and want the pictures to match it.",
+        "tags": "Campaigns · Editorial · Motion"
+    }
+]

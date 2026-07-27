@@ -1,0 +1,444 @@
+/*
+    Chronicle — the brutalist design system.
+
+    This file is inlined right after Tailwind by @vite in the layout, so
+    everything here applies to every page. The tokens below become real
+    Tailwind utilities: bg-canvas, text-ink, border-line, bg-accent,
+    shadow via the .shadow-brutal classes, and so on.
+
+    Colors and fonts come from resources/css/theme.css (the Theme panel owns
+    them); everything here is aliases, derived tints, and the motion system.
+*/
+
+@theme {
+    --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+    /* Surfaces — aliased onto the semantic theme tokens in theme.css. */
+    --color-canvas: var(--background);
+    --color-panel: var(--card);
+    --color-raised: var(--secondary);
+
+    /* The brutalist signature: hairlines are drawn in ink, not gray. */
+    --color-line: var(--foreground);
+    --color-line-soft: color-mix(in oklab, var(--foreground) 15%, var(--background));
+
+    /* Text */
+    --color-ink: var(--foreground);
+    --color-muted: var(--muted-foreground);
+    --color-faint: color-mix(in oklab, var(--muted-foreground) 65%, var(--background));
+
+    /* The accent — bubblegum pink out of the box; dark text rides it. */
+    --color-accent: var(--primary);
+    --color-accent-ink: var(--primary-foreground);
+    --color-accent-soft: color-mix(in oklab, var(--primary) 24%, var(--background));
+
+    /* One easing pair for everything interactive. */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Cross-page navigation fades — the whole site feels like one surface. */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 200ms;
+    animation-timing-function: ease;
+}
+
+html {
+    background-color: var(--color-canvas);
+    scrollbar-color: color-mix(in oklab, var(--color-ink) 35%, var(--color-canvas)) transparent;
+}
+
+/* One stray wide element must never give the whole page a sideways scroll. */
+body {
+    overflow-x: clip;
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+}
+
+/* Headings speak the display face everywhere, including post bodies. */
+h1, h2, h3, h4,
+.prose h2, .prose h3 {
+    font-family: var(--font-display);
+}
+
+/*
+    The hard offset shadow — Chronicle's signature. Pair with a border and
+    the .lift hover to make cards and buttons physically press and pop.
+*/
+.shadow-brutal {
+    box-shadow: 4px 4px 0 0 var(--color-line);
+}
+
+.shadow-brutal-sm {
+    box-shadow: 3px 3px 0 0 var(--color-line);
+}
+
+.shadow-brutal-lg {
+    box-shadow: 8px 8px 0 0 var(--color-line);
+}
+
+.shadow-brutal-accent {
+    box-shadow: 5px 5px 0 0 var(--color-accent);
+}
+
+.lift {
+    transition:
+        translate 0.18s var(--ease-out-quart),
+        box-shadow 0.18s var(--ease-out-quart),
+        background-color 0.18s var(--ease-out-quart),
+        color 0.18s var(--ease-out-quart);
+}
+
+.lift:hover {
+    translate: -2px -2px;
+    box-shadow: 6px 6px 0 0 var(--color-line);
+}
+
+.lift:active {
+    translate: 1px 1px;
+    box-shadow: 2px 2px 0 0 var(--color-line);
+}
+
+.lift-lg:hover {
+    translate: -3px -3px;
+    box-shadow: 11px 11px 0 0 var(--color-line);
+}
+
+/* Outlined display type — the giant footer wordmark and 404 numeral. */
+.text-outline {
+    -webkit-text-stroke: 2px var(--color-ink);
+    color: transparent;
+    transition: color 0.3s var(--ease-out-quart);
+}
+
+.text-outline:hover {
+    color: var(--color-accent);
+}
+
+/* A fine engineering grid — sits behind heroes and framed panels. */
+.grid-texture {
+    background-image:
+        linear-gradient(color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/*
+    The marquee strip. The track holds the item run twice; the animation
+    slides exactly half its width, so the loop is seamless. Hover pauses it.
+*/
+.marquee {
+    overflow: hidden;
+    user-select: none;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee[data-reverse] .marquee-track {
+    animation-direction: reverse;
+}
+
+@keyframes marquee-scroll {
+    to {
+        translate: -50% 0;
+    }
+}
+
+/* The slow-spinning spark — decorates marquee separators and stickers. */
+.spin-slow {
+    animation: spin-slow 9s linear infinite;
+}
+
+@keyframes spin-slow {
+    to {
+        rotate: 360deg;
+    }
+}
+
+/*
+    The reveal system. main.js adds .js to the html element before first
+    paint, then an IntersectionObserver flips .is-visible as each
+    [data-reveal] element scrolls into view. Without JavaScript nothing is
+    ever hidden. Stagger a group with the .reveal-N delay classes.
+*/
+.js [data-reveal] {
+    opacity: 0;
+    translate: 0 20px;
+    transition:
+        opacity 0.8s var(--ease-spring),
+        translate 0.8s var(--ease-spring);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal].is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.reveal-1 { --reveal-delay: 80ms; }
+.reveal-2 { --reveal-delay: 160ms; }
+.reveal-3 { --reveal-delay: 240ms; }
+.reveal-4 { --reveal-delay: 320ms; }
+.reveal-5 { --reveal-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+    }
+
+    .marquee-track,
+    .spin-slow {
+        animation: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}
+
+/* The mobile menu sheet — drops under the header, ink hairline below. */
+[data-mobile-panel] {
+    opacity: 0;
+    translate: 0 -8px;
+    visibility: hidden;
+    transition:
+        opacity 0.26s var(--ease-out-quart),
+        translate 0.26s var(--ease-out-quart),
+        visibility 0s linear 0.26s;
+}
+
+.menu-open [data-mobile-panel] {
+    opacity: 1;
+    translate: 0 0;
+    visibility: visible;
+    transition:
+        opacity 0.3s var(--ease-out-quart),
+        translate 0.3s var(--ease-out-quart),
+        visibility 0s;
+}
+
+.menu-open {
+    overflow: hidden;
+}
+
+/* Smooth details opening for the FAQ (Chrome; harmless elsewhere). */
+details.faq-item {
+    interpolate-size: allow-keywords;
+}
+
+details.faq-item::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.35s var(--ease-out-quart), content-visibility 0.35s;
+    transition-behavior: allow-discrete;
+}
+
+details.faq-item[open]::details-content {
+    block-size: auto;
+}
+
+details.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/*
+    Long-form typography for Journal posts and case studies, applied via
+    class="prose" on the article body. Tuned for the cream canvas: generous
+    leading, ink headings, soft hairline rules.
+*/
+.prose {
+    color: color-mix(in oklab, var(--color-ink) 82%, transparent);
+    font-size: 1.0625rem;
+    line-height: 1.85;
+}
+
+.prose > * + * {
+    margin-top: 1.5em;
+}
+
+.prose h2 {
+    margin-top: 2.5em;
+    color: var(--color-ink);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.prose h3 {
+    margin-top: 2.2em;
+    color: var(--color-ink);
+    font-size: 1.1875rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.prose p.lead {
+    color: var(--color-ink);
+    font-size: 1.3125rem;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+}
+
+.prose a {
+    color: var(--color-ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 3px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.prose a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+    text-decoration-color: var(--color-accent-ink);
+}
+
+.prose strong {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 1.4em;
+}
+
+.prose ul {
+    list-style: square;
+}
+
+.prose ol {
+    list-style: decimal;
+}
+
+.prose li {
+    margin-top: 0.55em;
+    padding-left: 0.25em;
+}
+
+.prose li::marker {
+    color: var(--color-accent);
+}
+
+.prose ol > li::marker {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.prose blockquote {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 1px solid var(--color-line);
+    box-shadow: 4px 4px 0 0 var(--color-line);
+    padding: 1.4em 1.6em;
+    background: var(--color-panel);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+}
+
+.prose blockquote cite {
+    display: block;
+    margin-top: 0.9em;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-style: normal;
+    color: var(--color-muted);
+}
+
+.prose code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: var(--color-ink);
+    background: var(--color-raised);
+    border: 1px solid var(--color-line-soft);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+}
+
+.prose pre {
+    background: var(--color-ink);
+    border: 1px solid var(--color-line);
+    padding: 1.25em 1.5em;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.prose pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: inherit;
+    color: color-mix(in oklab, var(--color-canvas) 92%, transparent);
+}
+
+.prose hr {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border: 0;
+    border-top: 1px solid var(--color-line);
+}
+
+.prose img {
+    border: 1px solid var(--color-line);
+    box-shadow: 6px 6px 0 0 var(--color-line);
+}
+
+.prose figcaption {
+    margin-top: 1.1em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+}
+
+.prose table {
+    width: 100%;
+    font-size: 0.9375rem;
+    border-collapse: collapse;
+}
+
+.prose th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    border-bottom: 2px solid var(--color-line);
+    padding: 0.6em 1em 0.6em 0;
+}
+
+.prose td {
+    border-bottom: 1px solid var(--color-line-soft);
+    padding: 0.6em 1em 0.6em 0;
+    color: var(--color-muted);
+}

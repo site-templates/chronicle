@@ -1,0 +1,18 @@
+title: Marquee
+description: The scrolling pink strip of phrases with spark separators
+fields:
+    items:
+        type: repeater
+        label: Phrases
+        add_button_label: "Add phrase"
+        item_label: text
+        source: "marquee"
+        sub_fields:
+            text:
+                type: text
+                label: Phrase
+                default: "New phrase"
+    reversed:
+        type: toggle
+        label: Reverse direction
+        default: "0"

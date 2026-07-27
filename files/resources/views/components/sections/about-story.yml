@@ -1,0 +1,41 @@
+title: About story
+description: The bio split — framed studio photo beside the story and a signature block
+fields:
+    eyebrow:
+        type: text
+        label: Eyebrow
+        default: "The short version"
+    heading:
+        type: text
+        label: Heading
+        default: "Designer, developer, occasional troublemaker"
+    bodyOne:
+        type: textarea
+        label: First paragraph
+        rows: 5
+        default: "I've spent twelve years designing and building for the web — first inside product teams at startups you've probably used, now independently as Chronicle. The through line: work that has a point of view. Safe design is invisible design, and invisible is expensive."
+    bodyTwo:
+        type: textarea
+        label: Second paragraph
+        rows: 4
+        default: "I work end to end — strategy, identity, design, and the code that ships it. One person, no handoffs, no telephone game. You talk to the person making the thing, every time."
+    image:
+        type: image
+        label: Photo
+        default: "https://assets.ui.sh/avatars/7.webp?w=1000&h=750"
+    imageAlt:
+        type: text
+        label: Photo alt text
+        default: "Marlo at the studio desk"
+    caption:
+        type: text
+        label: Frame caption
+        default: "Fig. 02 — The studio"
+    name:
+        type: text
+        label: Signature name
+        default: "Marlo Vane"
+    role:
+        type: text
+        label: Signature role
+        default: "Founder & everything else, Chronicle"

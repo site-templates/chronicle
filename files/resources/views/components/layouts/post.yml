@@ -1,0 +1,48 @@
+# The visual editor's contract for layouts/post.blade.php — the shared
+# chrome around every Journal post. Per-post values ride on each entry in
+# resources/data/collections/journal.json; these fields are the fallbacks.
+title: Post layout
+description: The shared chrome for a Journal post — breadcrumb, sticker, title, byline, lead image, and the prose column
+fields:
+    title:
+        type: text
+        label: Title
+        default: ""
+    description:
+        type: textarea
+        label: Description
+        rows: 2
+        default: ""
+    category:
+        type: text
+        label: Category
+        default: "Notes"
+    date:
+        type: text
+        label: Date
+        default: ""
+    readTime:
+        type: text
+        label: Read time
+        default: ""
+    author:
+        type: text
+        label: Author
+        default: ""
+    authorRole:
+        type: text
+        label: Author role
+        default: ""
+    authorImage:
+        type: image
+        label: Author photo
+        default: ""
+    image:
+        type: image
+        label: Lead image
+        description: Leave empty to skip the lead image.
+        default: ""
+    imageAlt:
+        type: text
+        label: Lead image alt text
+        default: ""

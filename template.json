@@ -1,0 +1,22 @@
+{
+    "name": "Chronicle",
+    "dialect": "blade",
+    "description": "A brutalist portfolio with a playful streak — cream canvas, hard ink hairlines, offset shadows, sticker chips, a scrolling marquee, spec-table case studies, and a journal.",
+    "icon": "✳️",
+    "repo": "https://github.com/site-templates/chronicle",
+    "order": 17,
+    "category": "portfolio",
+    "theme": "light",
+    "accent": "#ff90e8",
+    "themeable": true,
+    "palette": "taffy",
+    "fonts": "space-grotesk",
+    "appearance": "light",
+    "pages": [
+        "Home",
+        "Work",
+        "About",
+        "Journal",
+        "Contact"
+    ]
+}

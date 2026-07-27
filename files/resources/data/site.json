@@ -1,0 +1,46 @@
+{
+    "name": "Chronicle",
+    "theme": {
+        "palette": "taffy",
+        "fonts": "space-grotesk",
+        "fonts_url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap",
+        "appearance": "light",
+        "appearance_class": ""
+    },
+    "nav_links": [
+        {
+            "text": "Work",
+            "url": "/work"
+        },
+        {
+            "text": "About",
+            "url": "/about"
+        },
+        {
+            "text": "Journal",
+            "url": "/journal"
+        },
+        {
+            "text": "Contact",
+            "url": "/contact"
+        }
+    ],
+    "social_links": [
+        {
+            "text": "Twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "text": "Instagram",
+            "url": "https://instagram.com"
+        },
+        {
+            "text": "Dribbble",
+            "url": "https://dribbble.com"
+        },
+        {
+            "text": "GitHub",
+            "url": "https://github.com"
+        }
+    ]
+}

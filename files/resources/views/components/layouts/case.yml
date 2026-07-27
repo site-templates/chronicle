@@ -1,0 +1,53 @@
+# The visual editor's contract for layouts/case.blade.php — the shared
+# chrome around every Work case study. Per-project values ride on each
+# entry in resources/data/collections/work.json; these fields are the
+# fallbacks.
+title: Case study layout
+description: The shared chrome for a Work case study — breadcrumb, title, spec table, cover image, and the prose column
+fields:
+    title:
+        type: text
+        label: Title
+        default: ""
+    description:
+        type: textarea
+        label: Description
+        rows: 2
+        default: ""
+    category:
+        type: text
+        label: Category sticker
+        default: "Case study"
+    client:
+        type: text
+        label: Client
+        default: ""
+    role:
+        type: text
+        label: Role
+        default: ""
+    services:
+        type: text
+        label: Services
+        default: ""
+    year:
+        type: text
+        label: Year
+        default: ""
+    liveUrl:
+        type: url
+        label: Live link
+        description: Leave empty to hide the live button.
+        default: ""
+    liveText:
+        type: text
+        label: Live button text
+        default: "View it live"
+    image:
+        type: image
+        label: Cover image
+        default: ""
+    imageAlt:
+        type: text
+        label: Cover image alt text
+        default: ""

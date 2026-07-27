@@ -1,0 +1,51 @@
+# The visual editor's contract for components/footer.blade.php — these
+# fields surface under the Layout tab. Field names are camelCase, matching
+# the props they fill.
+title: Footer
+description: The site-wide footer — columns, the giant outlined wordmark, and the small print
+fields:
+    brand:
+        type: text
+        label: Brand name
+        description: Also drawn as the giant outlined wordmark.
+        default: "Chronicle"
+    tagline:
+        type: textarea
+        label: Tagline
+        rows: 2
+        default: "Independent design & code studio. Brutal on the outside, thoughtful underneath."
+    email:
+        type: text
+        label: Contact email
+        default: "hello@chronicle.studio"
+    showAvailability:
+        type: toggle
+        label: Show availability badge
+        default: "1"
+    availability:
+        type: text
+        label: Availability badge
+        default: "Booking for Q3 2026"
+    copyright:
+        type: text
+        label: Copyright line
+        default: "© 2026 Chronicle Studio. All rights reserved."
+    credit:
+        type: text
+        label: Credit line
+        default: "Set in Space Grotesk"
+    socials:
+        type: repeater
+        label: Social links
+        add_button_label: "Add social link"
+        item_label: text
+        source: "site.social_links"
+        sub_fields:
+            text:
+                type: text
+                label: Label
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "https://"
