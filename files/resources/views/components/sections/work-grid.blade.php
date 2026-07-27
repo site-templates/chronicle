@@ -24,7 +24,7 @@
             </div>
 
             @if ($showAllLink)
-            <a href="{{ $allLink }}" class="lift inline-flex shrink-0 items-center gap-2 border border-line bg-panel px-6 py-3.5 font-display text-sm font-bold tracking-wide text-ink uppercase shadow-brutal">
+            <a href="{{ $allLink }}" class="lift inline-flex shrink-0 items-center gap-2 border border-line bg-panel py-3.5 pr-4 pl-6 font-display text-sm font-bold tracking-wide text-ink uppercase shadow-brutal">
                 {{ $allText }}
                 <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                     <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/>
@@ -33,9 +33,10 @@
             @endif
         </div>
 
+        <!-- Even cards sit a step lower on desktop — an editorial stagger that keeps the grid from reading as a plain catalog. -->
         <div class="mt-14 grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14">
             @foreach ($items as $item)
-            <a href="{{ $item->link }}" class="group block" data-reveal>
+            <a href="{{ $item->link }}" class="group block sm:even:mt-16" data-reveal>
                 <span class="lift lift-lg block border border-line bg-panel p-3 shadow-brutal">
                     <img src="{{ $item->image }}" alt="{{ $item->imageAlt }}" class="aspect-[4/3] w-full border border-line object-cover" loading="lazy">
                 </span>

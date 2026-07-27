@@ -10,6 +10,7 @@
     'secondaryLink' => '/about',
     'image' => 'https://assets.ui.sh/avatars/7.webp?w=800&h=1000',
     'imageAlt' => 'Portrait of Marlo Vane in the studio',
+    'caption' => 'Fig. 01 — The human',
     'showStickers' => '1',
     'stickerOne' => 'Pixel perfectish',
     'stickerTwo' => 'Less, but louder',
@@ -43,7 +44,7 @@
             <p class="reveal-2 mt-8 max-w-[52ch] text-lg/8 text-pretty text-muted" data-reveal>{{ $body }}</p>
 
             <div class="reveal-3 mt-10 flex flex-wrap items-center gap-4" data-reveal>
-                <a href="{{ $primaryLink }}" class="lift inline-flex items-center gap-2 border border-line bg-ink px-7 py-4 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
+                <a href="{{ $primaryLink }}" class="lift inline-flex items-center gap-2 border border-line bg-ink py-4 pr-5 pl-7 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
                     {{ $primaryText }}
                     <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                         <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/>
@@ -60,7 +61,7 @@
             <div class="border border-line bg-panel p-3 shadow-brutal-lg sm:p-4">
                 <img src="{{ $image }}" alt="{{ $imageAlt }}" class="aspect-[4/5] w-full border border-line object-cover">
                 <div class="flex items-center justify-between pt-3 font-mono text-[11px] tracking-[0.15em] text-muted uppercase">
-                    <span>Fig. 01 — The human</span>
+                    <span>{{ $caption }}</span>
                     <svg viewBox="0 0 64 64" class="size-3.5 fill-accent" aria-hidden="true">
                         <path d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
                     </svg>

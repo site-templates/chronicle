@@ -13,7 +13,7 @@
 
             <p class="mt-8 max-w-[44ch] text-lg/8 text-pretty text-muted">Either the link is old, the URL got mangled, or I moved something and forgot to tell the internet. The homepage knows the way.</p>
 
-            <a href="/" class="lift mt-10 inline-flex items-center gap-2 border border-line bg-ink px-7 py-4 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
+            <a href="/" class="lift mt-10 inline-flex items-center gap-2 border border-line bg-ink py-4 pr-7 pl-5 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
                 <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                     <path fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z" clip-rule="evenodd"/>
                 </svg>

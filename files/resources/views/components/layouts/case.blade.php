@@ -39,7 +39,7 @@
                 </div>
 
                 @if ($liveUrl)
-                <a href="{{ $liveUrl }}" class="lift inline-flex shrink-0 items-center gap-2 border border-line bg-ink px-6 py-3.5 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
+                <a href="{{ $liveUrl }}" class="lift inline-flex shrink-0 items-center gap-2 border border-line bg-ink py-3.5 pr-4 pl-6 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
                     {{ $liveText }}
                     <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                         <path fill-rule="evenodd" d="M4.25 3a.75.75 0 0 0 0 1.5h6.19L3.22 11.72a.75.75 0 1 0 1.06 1.06l7.22-7.22v6.19a.75.75 0 0 0 1.5 0V3.75a.75.75 0 0 0-.75-.75H4.25Z" clip-rule="evenodd"/>
@@ -81,7 +81,7 @@
             <!-- The closing band every case study shares -->
             <div class="mt-20 flex flex-col items-center gap-6 border border-line bg-accent p-10 text-center shadow-brutal-lg sm:p-14" data-reveal>
                 <p class="max-w-[24ch] font-display text-3xl leading-[1.1] font-bold tracking-tight text-accent-ink sm:text-4xl">Want results like these?</p>
-                <a href="/contact" class="lift inline-flex items-center gap-2 border border-line bg-ink px-7 py-4 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
+                <a href="/contact" class="lift inline-flex items-center gap-2 border border-line bg-ink py-4 pr-5 pl-7 font-display text-sm font-bold tracking-wide text-canvas uppercase shadow-brutal">
                     Start a project
                     <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                         <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/>

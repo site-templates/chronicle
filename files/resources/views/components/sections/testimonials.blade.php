@@ -22,7 +22,7 @@
                 <svg viewBox="0 0 64 64" class="size-6 fill-accent" aria-hidden="true">
                     <path d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
                 </svg>
-                <blockquote class="mt-5 grow font-display text-lg/7 font-medium tracking-tight text-ink">“{{ $item->quote }}”</blockquote>
+                <blockquote class="relative mt-5 grow font-display text-lg/7 font-medium tracking-tight text-ink before:absolute before:inline before:-translate-x-full before:content-['\201C'] after:inline after:content-['\201D']">{{ $item->quote }}</blockquote>
                 <figcaption class="mt-7 flex items-center gap-3 border-t border-line-soft pt-5">
                     <img src="{{ $item->avatar }}" alt="" class="size-10 border border-line object-cover" loading="lazy">
                     <span>

@@ -26,7 +26,7 @@
 
         <p class="reveal-2 mt-7 max-w-[48ch] text-lg/8 text-pretty text-muted" data-reveal>{{ $body }}</p>
 
-        <a href="{{ $buttonLink }}" class="lift reveal-3 mt-11 inline-flex items-center gap-3 border border-line bg-accent px-8 py-5 font-display text-lg font-bold tracking-tight text-accent-ink shadow-brutal-lg sm:px-12 sm:text-2xl" data-reveal>
+        <a href="{{ $buttonLink }}" class="lift reveal-3 mt-11 inline-flex items-center gap-3 border border-line bg-accent py-5 pr-6 pl-8 font-display text-lg font-bold tracking-tight text-accent-ink shadow-brutal-lg sm:pr-9 sm:pl-12 sm:text-2xl" data-reveal>
             {{ $buttonText }}
             <svg viewBox="0 0 16 16" class="size-5 fill-current sm:size-6" aria-hidden="true">
                 <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/>

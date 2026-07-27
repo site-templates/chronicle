@@ -49,6 +49,10 @@ fields:
         type: text
         label: Portrait alt text
         default: "Portrait of Marlo Vane in the studio"
+    caption:
+        type: text
+        label: Frame caption
+        default: "Fig. 01 — The human"
     showStickers:
         type: toggle
         label: Show sticker chips
