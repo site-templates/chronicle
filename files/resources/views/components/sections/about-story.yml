@@ -18,15 +18,15 @@ fields:
         type: textarea
         label: Second paragraph
         rows: 4
-        default: "I work end to end — strategy, identity, design, and the code that ships it. One person, no handoffs, no telephone game. You talk to the person making the thing, every time."
+        default: "We work end to end — strategy, identity, design, and the code that ships it. One tight team, no handoffs, no telephone game. You talk to the people making the thing, every time."
     image:
         type: image
         label: Photo
-        default: "https://assets.ui.sh/avatars/7.webp?w=1000&h=750"
+        default: "/assets/images/about-studio.jpg"
     imageAlt:
         type: text
         label: Photo alt text
-        default: "Marlo at the studio desk"
+        default: "The Chronicle studio at work"
     caption:
         type: text
         label: Frame caption

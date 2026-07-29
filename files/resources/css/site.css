@@ -51,6 +51,10 @@
 html {
     background-color: var(--color-canvas);
     scrollbar-color: color-mix(in oklab, var(--color-ink) 35%, var(--color-canvas)) transparent;
+
+    /* No rubber-banding past the page edge — the brutalist frame has no
+       "above the top", so the canvas must never scroll past it. */
+    overscroll-behavior-y: none;
 }
 
 /* One stray wide element must never give the whole page a sideways scroll. */

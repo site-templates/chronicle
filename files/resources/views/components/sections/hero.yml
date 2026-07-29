@@ -44,11 +44,11 @@ fields:
     image:
         type: image
         label: Portrait
-        default: "https://assets.ui.sh/avatars/7.webp?w=800&h=1000"
+        default: "/assets/images/hero-portrait.jpg"
     imageAlt:
         type: text
         label: Portrait alt text
-        default: "Portrait of Marlo Vane in the studio"
+        default: "Torn-paper collage portrait of Marlo Vane"
     caption:
         type: text
         label: Frame caption

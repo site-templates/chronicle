@@ -52,7 +52,7 @@ fields:
             image:
                 type: image
                 label: Cover image
-                default: "https://assets.ui.sh/wallpapers/silk.webp?variant=platinum-flow"
+                default: "/assets/images/work-mono.jpg"
             imageAlt:
                 type: text
                 label: Cover alt text

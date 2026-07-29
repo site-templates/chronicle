@@ -3,13 +3,13 @@
     'headingStart' => 'I make brands',
     'headingPill' => 'too bold',
     'headingEnd' => 'to scroll past.',
-    'body' => 'Chronicle is my one-person design & code studio. Strategy, identity, and websites for people with something to say — built loud, shipped fast, and maintained like I mean it.',
+    'body' => 'Chronicle is my small design & code studio. Strategy, identity, and websites for people with something to say — built loud, shipped fast, and maintained like I mean it.',
     'primaryText' => 'View the work',
     'primaryLink' => '/work',
     'secondaryText' => 'More about me',
     'secondaryLink' => '/about',
-    'image' => 'https://assets.ui.sh/avatars/7.webp?w=800&h=1000',
-    'imageAlt' => 'Portrait of Marlo Vane in the studio',
+    'image' => '/assets/images/hero-portrait.jpg',
+    'imageAlt' => 'Torn-paper collage portrait of Marlo Vane',
     'caption' => 'Fig. 01 — The human',
     'showStickers' => '1',
     'stickerOne' => 'Pixel perfectish',
@@ -22,10 +22,15 @@
     pointer as it moves. Turn the stickers off from the inspector if you
     want the portrait plain.
 -->
-<section id="hero" class="relative border-b border-line">
+<!--
+    On desktop the hero fills the viewport minus the sticky nav (65px) and the
+    marquee strip (65px), so the pink marquee always lands above the fold. The
+    portrait's width is capped by viewport height for the same reason.
+-->
+<section id="hero" class="relative border-b border-line lg:flex lg:min-h-[calc(100dvh-130px)] lg:items-center">
     <div class="grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
-    <div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+    <div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr] lg:gap-20 lg:py-10">
 
         <div>
             <p class="inline-flex items-center gap-2.5 font-mono text-xs font-medium tracking-[0.2em] uppercase" data-reveal>
@@ -57,7 +62,7 @@
         </div>
 
         <!-- The portrait, framed like a print -->
-        <div class="reveal-2 relative mx-auto w-full max-w-md lg:max-w-none" data-reveal>
+        <div class="reveal-2 relative mx-auto w-full max-w-md lg:max-w-[min(100%,calc((100dvh-17.5rem)*0.8))]" data-reveal>
             <div class="border border-line bg-panel p-3 shadow-brutal-lg sm:p-4">
                 <img src="{{ $image }}" alt="{{ $imageAlt }}" class="aspect-[4/5] w-full border border-line object-cover">
                 <div class="flex items-center justify-between pt-3 font-mono text-[11px] tracking-[0.15em] text-muted uppercase">
