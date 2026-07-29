@@ -159,6 +159,8 @@ function countUpStats() {
 /*
     Sticker tilt: elements tagged data-tilt lean gently toward the pointer
     as it moves across their parent section — a light, playful parallax.
+    When the pointer leaves the section the chips simply keep their last
+    lean instead of snapping back to their resting spot.
 */
 function stickerTilt() {
     const stickers = document.querySelectorAll('[data-tilt]');
@@ -178,10 +180,6 @@ function stickerTilt() {
             const x = (event.clientX - rect.left) / rect.width - 0.5;
             const y = (event.clientY - rect.top) / rect.height - 0.5;
             el.style.translate = (x * 10) + 'px ' + (y * 10) + 'px';
-        });
-
-        zone.addEventListener('pointerleave', function () {
-            el.style.translate = '0px 0px';
         });
     });
 }

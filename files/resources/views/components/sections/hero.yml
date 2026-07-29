@@ -44,15 +44,11 @@ fields:
     image:
         type: image
         label: Portrait
-        default: "/assets/images/hero-portrait.jpg"
+        default: "/assets/images/hero-portrait.webp"
     imageAlt:
         type: text
         label: Portrait alt text
         default: "Torn-paper collage portrait of Marlo Vane"
-    caption:
-        type: text
-        label: Frame caption
-        default: "Fig. 01 — The human"
     showStickers:
         type: toggle
         label: Show sticker chips

@@ -15,12 +15,14 @@
     <div class="flex h-16 items-stretch">
 
         <!-- href="/" always points to your site's root, in preview and when published -->
-        <!-- Hovering the wordmark spins the spark a quarter turn and pops it up a touch. -->
-        <a href="/" aria-label="Homepage" class="group flex shrink-0 items-center gap-2.5 border-r border-line px-5 text-ink sm:px-7">
-            <svg viewBox="0 0 64 64" class="size-5 shrink-0 fill-accent transition-transform duration-500 [transition-timing-function:var(--ease-spring)] group-hover:rotate-90 group-hover:scale-125" aria-hidden="true">
-                <path stroke="currentColor" stroke-width="3" d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
-            </svg>
-            <span class="font-display text-lg font-bold tracking-tight">{{ $brand }}<span class="align-super text-[10px]">®</span></span>
+        <!-- Hovering the wordmark spins the spark and lifts the whole mark a touch; pressing squashes it down like a real button. -->
+        <a href="/" aria-label="Homepage" class="group flex shrink-0 items-center border-r border-line px-5 text-ink sm:px-7">
+            <span class="flex items-center gap-2.5 transition-transform duration-300 [transition-timing-function:var(--ease-spring)] group-hover:scale-[1.05] group-active:scale-[0.98]">
+                <svg viewBox="0 0 64 64" class="size-5 shrink-0 fill-accent transition-transform duration-500 [transition-timing-function:var(--ease-spring)] group-hover:rotate-90 group-hover:scale-125" aria-hidden="true">
+                    <path stroke="currentColor" stroke-width="3" d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
+                </svg>
+                <span class="font-display text-lg font-bold tracking-tight">{{ $brand }}<span class="align-super text-[10px]">®</span></span>
+            </span>
         </a>
 
         <!-- Primary links -->
@@ -28,7 +30,15 @@
             <ul role="list" class="flex items-center gap-1 font-display text-[15px] font-medium">
                 @foreach ($links as $link)
                 <li>
-                    <a href="{{ $link->url }}" class="block px-3.5 py-2 transition-colors duration-150 hover:bg-accent hover:text-accent-ink aria-[current]:underline aria-[current]:decoration-accent aria-[current]:decoration-[3px] aria-[current]:underline-offset-[6px]">{{ $link->text }}</a>
+                    <!-- Hover rolls the label up and a twin rises from below; the current page carries a pink bar (see .nav-flip in site.css) -->
+                    <a href="{{ $link->url }}" class="nav-flip-link relative block px-3.5 py-2">
+                        <span class="nav-flip">
+                            <span class="nav-flip-track">
+                                <span>{{ $link->text }}</span>
+                                <span aria-hidden="true">{{ $link->text }}</span>
+                            </span>
+                        </span>
+                    </a>
                 </li>
                 @endforeach
             </ul>

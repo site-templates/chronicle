@@ -8,19 +8,19 @@
     'primaryLink' => '/work',
     'secondaryText' => 'More about me',
     'secondaryLink' => '/about',
-    'image' => '/assets/images/hero-portrait.jpg',
+    'image' => '/assets/images/hero-portrait.webp',
     'imageAlt' => 'Torn-paper collage portrait of Marlo Vane',
-    'caption' => 'Fig. 01 — The human',
     'showStickers' => '1',
     'stickerOne' => 'Pixel perfectish',
     'stickerTwo' => 'Less, but louder',
 ])
 <!--
     The opening statement: a huge display headline with one phrase set on a
-    pink sticker pill, subcopy and two buttons on the left, and the studio
-    portrait in a brutal frame on the right — sticker chips lean toward the
-    pointer as it moves. Turn the stickers off from the inspector if you
-    want the portrait plain.
+    pink sticker pill, subcopy and two buttons on the left, and the torn-paper
+    collage portrait floating frameless on the canvas to the right — sticker
+    chips lean toward the pointer as it moves. The collage is a transparent
+    webp, so it blends straight into the page background. Turn the chips off
+    from the inspector if you want the collage plain.
 -->
 <!--
     On desktop the hero fills the viewport minus the sticky nav (65px) and the
@@ -32,7 +32,8 @@
 
     <div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr] lg:gap-20 lg:py-10">
 
-        <div>
+        <!-- Nudged up a touch at lg: the small eyebrow line makes true centering read low against the collage. -->
+        <div class="lg:-translate-y-6">
             <p class="inline-flex items-center gap-2.5 font-mono text-xs font-medium tracking-[0.2em] uppercase" data-reveal>
                 <svg viewBox="0 0 64 64" class="spin-slow size-4 fill-accent" aria-hidden="true">
                     <path stroke="currentColor" stroke-width="3" class="text-ink" d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
@@ -61,17 +62,9 @@
             </div>
         </div>
 
-        <!-- The portrait, framed like a print -->
-        <div class="reveal-2 relative mx-auto w-full max-w-md lg:max-w-[min(100%,calc((100dvh-17.5rem)*0.8))]" data-reveal>
-            <div class="border border-line bg-panel p-3 shadow-brutal-lg sm:p-4">
-                <img src="{{ $image }}" alt="{{ $imageAlt }}" class="aspect-[4/5] w-full border border-line object-cover">
-                <div class="flex items-center justify-between pt-3 font-mono text-[11px] tracking-[0.15em] text-muted uppercase">
-                    <span>{{ $caption }}</span>
-                    <svg viewBox="0 0 64 64" class="size-3.5 fill-accent" aria-hidden="true">
-                        <path d="M32 6 C34.8 20.4 43.6 29.2 58 32 C43.6 34.8 34.8 43.6 32 58 C29.2 43.6 20.4 34.8 6 32 C20.4 29.2 29.2 20.4 32 6 Z"/>
-                    </svg>
-                </div>
-            </div>
+        <!-- The collage — frameless, floating straight on the canvas -->
+        <div class="reveal-2 relative mx-auto w-full max-w-md lg:max-w-[min(100%,calc((100dvh-13rem)*0.9))]" data-reveal>
+            <img src="{{ $image }}" alt="{{ $imageAlt }}" class="w-full">
 
             @if ($showStickers)
             <span data-tilt class="absolute -top-4 -left-4 inline-block -rotate-6 rounded-full border border-line bg-accent px-4 py-2 font-display text-sm font-bold text-accent-ink shadow-brutal-sm sm:-left-8">{{ $stickerOne }}</span>
