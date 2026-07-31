@@ -1,0 +1,18 @@
+# Column types for work.json — the source of truth the builder
+# reads: richtext columns open in the rich editor (Content drawer
+# and any section repeater listing this collection).
+fields:
+    slug: { type: text }
+    title: { type: text }
+    summary: { type: textarea }
+    category: { type: text }
+    year: { type: text }
+    client: { type: text }
+    role: { type: text }
+    services: { type: text }
+    description: { type: textarea }
+    image: { type: image }
+    imageAlt: { type: text }
+    link: { type: url }
+    liveUrl: { type: url }
+    content: { type: richtext }
