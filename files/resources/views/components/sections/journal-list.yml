@@ -36,3 +36,31 @@ fields:
                 type: url
                 label: Link
                 default: "/journal"
+
+            description:
+                type: textarea
+                label: "Standfirst"
+            content:
+                type: richtext
+                label: "Post body"
+            image:
+                type: image
+                label: "Cover image"
+            imageAlt:
+                type: text
+                label: "Image alt text"
+            author:
+                type: text
+                label: "Author"
+            authorRole:
+                type: text
+                label: "Author role"
+            authorImage:
+                type: image
+                label: "Author photo"
+            readTime:
+                type: text
+                label: "Read time"
+            slug:
+                type: text
+                label: "Slug"

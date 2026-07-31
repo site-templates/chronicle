@@ -61,3 +61,25 @@ fields:
                 type: url
                 label: Link
                 default: "/work"
+
+            description:
+                type: textarea
+                label: "Description"
+            content:
+                type: richtext
+                label: "Case study body"
+            client:
+                type: text
+                label: "Client"
+            role:
+                type: text
+                label: "Role"
+            services:
+                type: text
+                label: "Services"
+            liveUrl:
+                type: url
+                label: "Live URL"
+            slug:
+                type: text
+                label: "Slug"
