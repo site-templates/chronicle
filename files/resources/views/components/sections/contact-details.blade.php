@@ -29,7 +29,7 @@
             <div class="border border-line bg-panel shadow-brutal">
                 <p class="border-b border-line px-6 py-4 font-mono text-[11px] font-medium tracking-[0.2em] text-faint uppercase">Elsewhere</p>
                 @foreach ($socials as $social)
-                <a href="{{ $social->url }}" class="group flex items-center justify-between border-line-soft px-6 py-4 font-display text-lg font-bold text-ink transition-colors duration-150 not-first:border-t hover:bg-accent hover:text-accent-ink">
+                <a href="{{ $social->url }}" target="_blank" rel="noopener" class="group flex items-center justify-between border-line-soft px-6 py-4 font-display text-lg font-bold text-ink transition-colors duration-150 not-first:border-t hover:bg-accent hover:text-accent-ink">
                     {{ $social->text }}
                     <svg viewBox="0 0 16 16" class="size-4 fill-current transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true">
                         <path fill-rule="evenodd" d="M4.25 3a.75.75 0 0 0 0 1.5h6.19L3.22 11.72a.75.75 0 1 0 1.06 1.06l7.22-7.22v6.19a.75.75 0 0 0 1.5 0V3.75a.75.75 0 0 0-.75-.75H4.25Z" clip-rule="evenodd"/>

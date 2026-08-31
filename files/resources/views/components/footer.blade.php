@@ -43,7 +43,7 @@
             <ul role="list" class="mt-5 flex flex-col gap-3 font-display text-[15px] font-medium">
                 @foreach ($socials as $social)
                 <li>
-                    <a href="{{ $social->url }}" class="group inline-flex items-center gap-1.5 text-ink transition-colors duration-150 hover:text-accent">
+                    <a href="{{ $social->url }}" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-ink transition-colors duration-150 hover:text-accent">
                         {{ $social->text }}
                         <svg viewBox="0 0 16 16" class="size-3 fill-current opacity-40 transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" aria-hidden="true">
                             <path fill-rule="evenodd" d="M4.25 3a.75.75 0 0 0 0 1.5h6.19L3.22 11.72a.75.75 0 1 0 1.06 1.06l7.22-7.22v6.19a.75.75 0 0 0 1.5 0V3.75a.75.75 0 0 0-.75-.75H4.25Z" clip-rule="evenodd"/>
