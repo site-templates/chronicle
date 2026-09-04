@@ -4,31 +4,73 @@
     Everything here is a progressive enhancement: with JavaScript off, the
     nav links still work, nothing stays hidden, and the site is fully
     usable. The matching transitions live in resources/css/site.css.
+
+    Pages change in place: instant navigation swaps <main> and keeps the
+    header and footer, so the menu binds once below. Everything that lives
+    inside <main> goes through setUp(root) — once on load, and again for
+    each new <main> after `instant:navigated`, tearing the previous page's
+    observers and count-ups down first.
 */
 
 // Flag the document early so CSS only hides reveal targets when JS will
 // actually reveal them. This file loads with defer, before first paint.
 document.documentElement.classList.add('js');
 
-document.addEventListener('DOMContentLoaded', function () {
-    mobileMenu();
-    revealOnScroll();
+// What the current <main> owns, released before the next one is set up.
+const observers = [];
+const counters = [];
+
+// The header persists for the whole visit: bind it once.
+const menu = mobileMenu();
+markCurrentMenuItem();
+
+setUp(document);
+
+document.addEventListener('instant:navigated', function (event) {
+    if (menu) {
+        menu.close();
+    }
     markCurrentMenuItem();
-    countUpStats();
-    stickerTilt();
+    setUp(event.detail.main);
 });
+
+/*
+    Everything that touches the page's own content. `root` is the document
+    on first load and the freshly swapped <main> after a navigation.
+*/
+function setUp(root) {
+    tearDown();
+    revealOnScroll(root);
+    countUpStats(root);
+    stickerTilt(root);
+}
+
+function tearDown() {
+    observers.splice(0).forEach(function (observer) {
+        observer.disconnect();
+    });
+    counters.splice(0).forEach(function (counter) {
+        cancelAnimationFrame(counter.frame);
+    });
+}
 
 /*
     The mobile menu: the hamburger toggles .menu-open on the html element,
     which drops the sheet down and locks scrolling. Closing on navigation
-    keeps same-page anchors from leaving the sheet hanging open.
+    keeps same-page anchors from leaving the sheet hanging open. Returns a
+    handle so a page change can close it too.
 */
 function mobileMenu() {
     const button = document.querySelector('[data-mobile-toggle]');
     const panel = document.querySelector('[data-mobile-panel]');
 
     if (!button || !panel) {
-        return;
+        return null;
+    }
+
+    function close() {
+        document.documentElement.classList.remove('menu-open');
+        button.setAttribute('aria-expanded', 'false');
     }
 
     button.addEventListener('click', function () {
@@ -37,11 +79,10 @@ function mobileMenu() {
     });
 
     panel.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.documentElement.classList.remove('menu-open');
-            button.setAttribute('aria-expanded', 'false');
-        });
+        link.addEventListener('click', close);
     });
+
+    return { close: close };
 }
 
 /*
@@ -49,8 +90,8 @@ function mobileMenu() {
     site.css) and settle into place as they enter the viewport. Each
     element animates once; --reveal-delay staggers siblings.
 */
-function revealOnScroll() {
-    const targets = document.querySelectorAll('[data-reveal]');
+function revealOnScroll(root) {
+    const targets = root.querySelectorAll('[data-reveal]');
 
     if (!('IntersectionObserver' in window)) {
         targets.forEach(function (el) {
@@ -68,6 +109,8 @@ function revealOnScroll() {
         });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 
+    observers.push(observer);
+
     targets.forEach(function (el) {
         // Anything already above the fold reveals immediately.
         if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
@@ -81,7 +124,8 @@ function revealOnScroll() {
 /*
     aria-current tells screen readers which page you're on and lights up
     the active nav link. Section pages count for their parents, so a
-    /journal/some-post URL keeps Journal lit.
+    /journal/some-post URL keeps Journal lit. Recomputed after every page
+    change, so the previous page's mark is cleared first.
 */
 function markCurrentMenuItem() {
     document.querySelectorAll('#header a[href], [data-mobile-panel] a[href]').forEach(function (link) {
@@ -91,6 +135,8 @@ function markCurrentMenuItem() {
             link.setAttribute('aria-current', 'page');
         } else if (link.pathname === '/' && path === '/') {
             link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
         }
     });
 }
@@ -100,8 +146,8 @@ function markCurrentMenuItem() {
     ("120+", "$4.2M", "12"); when it scrolls into view the numeric part
     counts up from zero over ~1s while prefix and suffix stay put.
 */
-function countUpStats() {
-    const targets = document.querySelectorAll('[data-count]');
+function countUpStats(root) {
+    const targets = root.querySelectorAll('[data-count]');
 
     if (!targets.length || !('IntersectionObserver' in window)) {
         return;
@@ -119,6 +165,8 @@ function countUpStats() {
         });
     }, { threshold: 0.4 });
 
+    observers.push(observer);
+
     targets.forEach(function (el) {
         observer.observe(el);
     });
@@ -135,6 +183,9 @@ function countUpStats() {
         const decimals = (match[1].split('.')[1] || '').length;
         const start = performance.now();
         const duration = 1100;
+        const counter = { frame: 0 };
+
+        counters.push(counter);
 
         function frame(now) {
             const progress = Math.min((now - start) / duration, 1);
@@ -146,13 +197,13 @@ function countUpStats() {
             }));
 
             if (progress < 1) {
-                requestAnimationFrame(frame);
+                counter.frame = requestAnimationFrame(frame);
             } else {
                 el.textContent = finalText;
             }
         }
 
-        requestAnimationFrame(frame);
+        counter.frame = requestAnimationFrame(frame);
     }
 }
 
@@ -162,8 +213,8 @@ function countUpStats() {
     When the pointer leaves the section the chips simply keep their last
     lean instead of snapping back to their resting spot.
 */
-function stickerTilt() {
-    const stickers = document.querySelectorAll('[data-tilt]');
+function stickerTilt(root) {
+    const stickers = root.querySelectorAll('[data-tilt]');
 
     if (!stickers.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
